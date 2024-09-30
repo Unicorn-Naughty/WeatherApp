@@ -1,4 +1,4 @@
-import WeatherData from "./WeatherData";
+import WeatherData from "./components/WeatherData";
 import SearchForm from "./components/SearchForm";
 function App() {
   return (

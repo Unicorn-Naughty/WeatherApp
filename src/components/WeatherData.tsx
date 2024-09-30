@@ -1,8 +1,7 @@
 import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "./hooks/hooks";
-import { fetchWeather } from "./store/store/weatherSlice";
-
-
+import { useAppDispatch, useAppSelector } from "../hooks/hooks";
+import { fetchWeather } from "../store/slices/weatherSlice";
+import { fetchIP } from "../store/slices/httpSlice";
 
 function WeatherData() {
   /*Проблема в том что ререндиртся все из-за инпута, но делать его ленивым тоже не вариант из-за того, что хочется дополнить выборку по подбору из ипута */
@@ -10,6 +9,9 @@ function WeatherData() {
   const weatherState = useAppSelector((state) => state.weather);
   const httpState = useAppSelector((state) => state.http);
 
+  useEffect(() => {
+    dispatch(fetchIP("https://api.ipify.org?format=json"));
+  }, []);
 
 
   useEffect(() => {
@@ -23,7 +25,6 @@ function WeatherData() {
         "loading"
       ) : (
         <div>
-         
           <ul></ul>
         </div>
       )}

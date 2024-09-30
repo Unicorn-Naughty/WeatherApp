@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
-import weatherSlice from "./store/weatherSlice";
-import httpSlice from "./store/httpSlice";
-import searchTownSlice from "./store/searchTownSlice";
+import weatherSlice from "./slices/weatherSlice";
+import httpSlice from "./slices/httpSlice";
+import searchTownSlice from "./slices/searchTownSlice";
 
 const store = configureStore({
     reducer: {

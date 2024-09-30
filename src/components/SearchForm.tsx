@@ -1,7 +1,8 @@
 import { useAppDispatch, useAppSelector } from "../hooks/hooks";
-import { setCityName, clearCityName } from "../store/store/searchTownSlice";
 import createHttp from "../pluggins/http";
-import { setHttp } from "../store/store/httpSlice";
+import { setHttp } from "../store/slices/httpSlice";
+import { setCityName, clearCityName } from "../store/slices/searchTownSlice";
+
 export default function SearchForm() {
   const cityName = useAppSelector((state) => state.search.cityName);
   const dispatch = useAppDispatch();
