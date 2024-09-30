@@ -9,9 +9,6 @@ function WeatherData() {
   const weatherState = useAppSelector((state) => state.weather);
   const httpState = useAppSelector((state) => state.http);
 
-  useEffect(() => {
-    dispatch(fetchIP("https://api.ipify.org?format=json"));
-  }, []);
 
 
   useEffect(() => {

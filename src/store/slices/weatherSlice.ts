@@ -10,17 +10,57 @@ const initialState: TInitialState = { entities: [], loading: false, lastUpdate: 
 
 export const fetchWeather = createAsyncThunk(
     'weather/fetchWeather', async (url: string, thunkApi) => {
-        try {
-            const response = await fetch(url);
-            if (!response.ok) {
-                throw new Error(`${response.status}: ${response.statusText}`);
+        if (url) {
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`${response.status}: ${response.statusText}`);
+                }
+                return await response.json();
+            } catch (err) {
+                if (err instanceof Error) {
+                    return thunkApi.rejectWithValue(err.message);
+                }
             }
-            return await response.json();
-        } catch (err) {
-            if (err instanceof Error) {
-                return thunkApi.rejectWithValue(err.message);
+        } else {
+            try {
+                const response = await fetch(`https://api.ipify.org?format=json`);
+                if (!response.ok) {
+                    throw new Error(`${response.status}: ${response.statusText}`);
+                }
+                const res = await response.json().then(data => data.ip)
+                try {
+                    const resp2 = await (await fetch(`http://ip-api.com/json/${res}`)).json().then(res => res)
+                    console.log(resp2);
+
+                    try {
+                        const res3 = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${resp2.city},${resp2.countryCode}&appid=92a343d2995882d9b1e03daab3b81510
+`);
+                        console.log(resp2);
+                        if (!res3.ok) {
+                            throw new Error(`${res3.status}: ${res3.statusText}`);
+                        }
+                        return await res3.json();
+                    } catch (err) {
+                        if (err instanceof Error) {
+                            return thunkApi.rejectWithValue(err.message);
+                        }
+                    }
+
+                } catch (err) {
+                    if (err instanceof Error) {
+                        return thunkApi.rejectWithValue(err.message);
+                    }
+                }
+
+            } catch (err) {
+                if (err instanceof Error) {
+                    return thunkApi.rejectWithValue(err.message);
+                }
             }
         }
+
+
     }
 )
 const weatherSlice = createSlice({
