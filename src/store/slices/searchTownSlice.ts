@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const searchTownSlice = createSlice({
     name: 'searchTownSlice',
@@ -6,7 +6,7 @@ const searchTownSlice = createSlice({
         cityName: ""
     },
     reducers: {
-        setCityName: (state, action) => {
+        setCityName: (state, action: PayloadAction<string>) => {
             state.cityName = action.payload
         },
         clearCityName: (state) => {
@@ -15,7 +15,7 @@ const searchTownSlice = createSlice({
     }
 })
 
-export const { setCityName,clearCityName } = searchTownSlice.actions
+export const { setCityName, clearCityName } = searchTownSlice.actions
 export default searchTownSlice
 
 // try {

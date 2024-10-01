@@ -1,5 +1,10 @@
 {
   "files": [],
+  "compilerOptions": {
+    "paths": {
+      "ymaps3": ["./node_modules/@yandex/ymaps3-types/"]
+    }
+  },
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
