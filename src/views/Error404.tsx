@@ -1,10 +1,19 @@
-import { Link } from "react-router-dom";
+import {
+  ErroLinkBack,
+  ErrorDiv,
+  ErrorMainComponent,
+} from "../styles/errorpage";
+
 
 export default function Error404() {
   return (
-    <div>
-      404
-      <Link to={"/"}>Go back</Link>
-    </div>
+    <ErrorMainComponent>
+      <ErrorDiv>
+        <p>Ooooooooops we've got Error 404.......</p>
+      </ErrorDiv>
+      <div>
+        <ErroLinkBack to={"/"}>Go back</ErroLinkBack>
+      </div>
+    </ErrorMainComponent>
   );
 }

@@ -1,14 +1,14 @@
 
 
 import Error404 from "../views/Error404";
+import HomePage from "../views/HomePage";
 import MapsOfHum from "../views/MapsOfHum";
 import ThirtyDaysWeather from "../views/ThirtyDaysWeather";
-import WeatherData from "../views/WeatherData";
 
 export const routes = [
     {
         path: "/",
-        Component: WeatherData
+        Component: HomePage
     },
     {
         path: "*",

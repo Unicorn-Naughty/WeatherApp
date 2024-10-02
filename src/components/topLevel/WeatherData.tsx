@@ -1,20 +1,20 @@
 import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../hooks/hooks";
-import { fetchWeather } from "../store/slices/weatherSlice";
-import { Text, Title } from "../styles/components";
-import Spinner from "../components/Spinner";
+import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
+import { fetchWeather } from "../../store/slices/weatherSlice";
+import { Text, Title } from "../../styles/components";
+import Spinner from "../Spinner";
 import {
   WeatherDataContent,
   WeatherDataDescr,
   WeatherDataTemp,
   WeatherDataWrapper,
-} from "../styles/weatherData";
-import unixTimeToJs from "../utilities/unixTimeToJs";
+} from "../../styles/weatherData";
+import unixTimeToJs from "../../utilities/unixTimeToJs";
 
 function WeatherData() {
-
   const dispatch = useAppDispatch();
   const weatherState = useAppSelector((state) => state.weather);
+  const errorState = useAppSelector((state) => state.error);
   const httpState = useAppSelector((state) => state.http);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ function WeatherData() {
   }, [httpState]);
   console.log(weatherState);
   if (!weatherState.entities) {
-    return <div>{`По вашему запросу ничего не нашлось`}</div>;
+    return <div>{`${errorState.text}`}</div>;
   }
   return (
     <>

@@ -15,7 +15,7 @@ export const NavComponent = styled.nav`
     justify-content: space-between;
     align-items: center;   
 `
-export const MainComponent = styled.main`
+export const MainComponent = styled.div`
     padding: 0 15px;
     flex-grow: 1;
     display: flex;
@@ -45,9 +45,17 @@ export const RightSideDiv = styled.div`
 `
 export const InfoBlock = styled.div`
     margin-right: 10px;
+    @media (max-width: 1050px){
+    margin-right: 0;
+    margin-bottom: 25px;
+    }
 `
 export const AddBlock = styled.aside`
 align-items: flex-end;
+@media (max-width: 1050px){
+        display: flex;
+        justify-content: space-between;
+    }
 `
 export const AddBlockElement = styled.div`
 width: 100px;
@@ -55,6 +63,10 @@ align-self: flex-end;
 height: 200px;
 border: 1px solid #000;
 margin-bottom: 20px;
+@media (max-width: 1050px){
+    width: 200px;
+    height: 100px;
+    }
 `
 
 export const FooterComponent = styled.footer`

@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { setError } from "./errorSlice";
 
 export type TEntities = {
     name: string
@@ -32,7 +33,7 @@ export type TEntities = {
         lon: number,
         lat: number
     }
-} 
+}
 
 type TEntitiesInitial = Partial<TEntities>
 
@@ -41,11 +42,12 @@ type TInitialState = {
     loading: boolean,
     lastUpdate: number | null
 }
+
 const initialState: TInitialState = { entities: {}, loading: false, lastUpdate: null }
 
 
 export const fetchWeather = createAsyncThunk(
-    'weather/fetchWeather', async (url: string) => {
+    'weather/fetchWeather', async (url: string, thunkApi) => {
         if (url) {
             try {
                 const response = await fetch(url);
@@ -78,22 +80,19 @@ export const fetchWeather = createAsyncThunk(
                         return await res3.json();
                     } catch (err) {
                         if (err instanceof Error) {
-                            console.log(`${err}. Checkout appID`);
-                            return ""
+                            thunkApi.dispatch(setError(`${err}. Перезагрузите страницу.`));
                         }
                     }
 
                 } catch (err) {
                     if (err instanceof Error) {
-                        console.log(`${err}. checkout resp2 fetch`);
-                        return "";
+                        thunkApi.dispatch(setError(`${err}. Не удалось загрузить начальные данные, введите город в поиск.`))
                     }
                 }
 
             } catch (err) {
                 if (err instanceof Error) {
-                    console.log(`${err}, checkout getting IP from response`);
-                    return "";
+                    thunkApi.dispatch(setError(`${err}. Не удалось загрузить начальные данные, введите город в поиск.`))
                 }
             }
         }

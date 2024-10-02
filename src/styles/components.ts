@@ -14,6 +14,9 @@ export const Button = styled.button`
     background-color: lightblue;
     cursor: pointer;
   }
+  @media (max-width: 780px){
+    width: 50px;
+    }
 `
 export const Input = styled.input`
   border: none;
@@ -28,6 +31,9 @@ export const Input = styled.input`
     border: none
  }
   transition: all .3s;
+  @media (max-width: 780px){
+    width: 140px;
+    }
 `
 export const StyledLink = styled(NavLink)`
 border: none;

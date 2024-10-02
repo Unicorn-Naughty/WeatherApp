@@ -1,13 +1,16 @@
 import { GlobalStyles } from "./styles/global";
 import Header from "./components/topLevel/Header";
-import Main from "./components/topLevel/Main";
+
 import Footer from "./components/topLevel/Footer";
+import { routes } from "./routes";
+import { useRoutes } from "react-router-dom";
 function App() {
+  const views = useRoutes(routes);
   return (
     <>
       <GlobalStyles />
       <Header />
-      <Main />
+      <main>{views}</main>
       <Footer />
     </>
   );

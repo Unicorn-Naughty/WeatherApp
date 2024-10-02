@@ -1,6 +1,5 @@
-import { Title, Text } from "../../styles/components";
-import { useRoutes } from "react-router-dom";
-import { routes } from "../../routes";
+import { YouTubeEmbed } from "../components/optional/YouTubeEmbed";
+import { Title, Text } from "../styles/components";
 import {
   AddBlock,
   AddBlockElement,
@@ -8,14 +7,16 @@ import {
   InfoBlock,
   MainComponent,
   RightSideDiv,
-} from "../../styles/topLevelComponents";
-import { YouTubeEmbed } from "../optional/YouTubeEmbed";
-export default function Main() {
-  const views = useRoutes(routes);
+} from "../styles/topLevelComponents";
+import WeatherData from "../components/topLevel/WeatherData";
+
+export default function HomePage() {
   return (
     <MainComponent>
       <div>
-        <ContentDiv>{views}</ContentDiv>
+        <ContentDiv>
+          <WeatherData />
+        </ContentDiv>
         <YouTubeEmbed />
       </div>
       <RightSideDiv>
