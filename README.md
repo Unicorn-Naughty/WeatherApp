@@ -1,29 +1,29 @@
 # WeatherApp
-Простое приложения для просмотра погоды. 
+Простое приложения для просмотра погоды.
+
+# Stack
+
+  1. Vite - сборщик
+  2. React-TS 
+  3. Redux-react/RTK - управление состоянием
+  4. Emotions - стилизация
+  5. Fetch - работа с апи
 
 <!--Установка-->
 ## Установка 
 
 1. Клонирование репозитория 
 
-```git clone https://github.com/OkulusDev/Oxygen.git```
+```git clone https://github.com/Unicorn-Naughty/WeatherApp.git```
 
-2. Переход в директорию Oxygen
+2. Переход в директорию WeatherApp
 
-```cd Oxygen```
+```cd WeatherApp```
 
-3. Создание виртуального окружения
+3. Установка зависимостей
 
-```python3 -m venv venv```
+```npm install @emotion/react  @emotion/styled @reduxjs/toolkit react-router-dom react-redux react-loader-spinner react-icons```
 
-4. Активация виртуального окружения
+6. Запуск для демонстрации возможностей WeatherApp
 
-```source venv/bin/activate```
-
-5. Установка зависимостей
-
-```pip3 install -r requirements.txt```
-
-6. Запуск скрипта для демонстрации возможностей Oxygen
-
-```python3 oxygen.py --help```
+```npm run dev```
