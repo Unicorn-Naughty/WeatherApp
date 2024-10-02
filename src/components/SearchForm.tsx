@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useAppDispatch, useAppSelector } from "../hooks/hooks";
-import createHttp from "../pluggins/http";
+import createHttp from "../api/httpRequest";
 import { setHttp } from "../store/slices/httpSlice";
 import { setCityName, clearCityName } from "../store/slices/searchTownSlice";
 import { Button, Input } from "../styles/components";
