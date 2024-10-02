@@ -28,6 +28,10 @@ export type TEntities = {
         deg: number,
         speed: number
     }
+    coord: {
+        lon: number,
+        lat: number
+    }
 } 
 
 type TEntitiesInitial = Partial<TEntities>

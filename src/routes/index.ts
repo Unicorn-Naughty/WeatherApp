@@ -29,12 +29,5 @@ export const routesForBreadCrumbs = [
         path: "/",
         title: "Weather for today"
     },
-    {
-        path: "/map",
-        title: "Precipitation map"
-    },
-    {
-        path: "/thirtyDaysForecaster",
-        title: "Weather for 30 days"
-    },
+
 ]
